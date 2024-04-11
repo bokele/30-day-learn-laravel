@@ -2,7 +2,7 @@
 
     <x-slot:heading>
         <div class=" relative isolate overflow-hidden  py-24 sm:py-32">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+            <img src="{{ asset('images/workaholics-focused-multi-ethnic-businesspeople-overworking-company-office-meeting-room-brainstorming-ideas-late-night.jpg') }}"
                 alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
             <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
                 aria-hidden="true">
@@ -19,14 +19,38 @@
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl sm:text-center">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">List Your Company</h2>
-                    <p class="mt-6 text-lg leading-8 text-gray-300">Put your agency in front of thousands of
-                        Laravel based businesses that need your skills.</p>
+                    <p class="mt-6 text-lg leading-8 text-indigo-600">Put your company in front of thousands of
+                        Software based businesses that need your skills.</p>
                 </div>
 
             </div>
         </div>
 
-
+        <div class="bg-white py-24 sm:py-32">
+            <div class="mx-auto max-w-full px-6 lg:px-8">
+                <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">Trusted by the world’s most
+                    innovative
+                    teams</h2>
+                <div
+                    class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                    <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor"
+                        width="158" height="48">
+                    <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform"
+                        width="158" height="48">
+                    <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple"
+                        width="158" height="48">
+                    <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal"
+                        width="158" height="48">
+                    <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic"
+                        width="158" height="48">
+                </div>
+            </div>
+        </div>
     </x-slot:heading>
 
 

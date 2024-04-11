@@ -19,7 +19,6 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
             <a href="{{ route('jobs.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Get Hired</a>
             <a href="{{ route('contact') }}" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
             <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Login</a>
@@ -56,19 +55,19 @@
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+
+                        <a href="{{ route('jobs.index') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Get
+                            Hired</a>
+                        <a href="{{ route('contact') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact</a>
+                        <a href="{{ route('login') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Login</a>
                     </div>
                     <div class="py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                            in</a>
+                        <a href="{{ route('princing') }}"
+                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                            Your Company</a>
                     </div>
                 </div>
             </div>
