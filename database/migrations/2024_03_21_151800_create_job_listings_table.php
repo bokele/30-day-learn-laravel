@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('employer_id');
+            $table->string('location')->default('onsite');
+            $table->string('type')->default('full time');
             $table->string('title');
             $table->string('salary');
+            $table->longText('description');
+            $table->datetime('closing_date');
             $table->timestamps();
         });
     }
