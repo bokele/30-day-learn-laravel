@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GetHiredController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PrincingController;
@@ -9,7 +10,8 @@ use App\Models\Job;
 Route::get('/', HomeController::class)->name('home');
 Route::get('/princing', PrincingController::class)->name('princing');
 
-Route::resource('jobs', JobController::class);
+
+Route::get('get-hidred', GetHiredController::class)->name('get-hired');
 
 
 
@@ -24,4 +26,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::resource('jobs', JobController::class);
 });

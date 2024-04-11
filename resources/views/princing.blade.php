@@ -59,9 +59,9 @@
 
     <div class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-10 gap-y-16   lg:max-w-full lg:grid-cols-3">
         <div
-            class="rounded-2xl mr-10  bg-gray-50 py-10 text-center ring-1 ring-inset
+            class="rounded-2xl   bg-gray-50 py-10 text-center ring-1 ring-inset
             ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-            <div class="max-w-full w-full px-4">
+            <div class="max-w-full w-full px-4 -mt-64">
                 <h3 class="text-2xl font-bold tracking-tight text-gray-900">Basic</h3>
                 <p class="text-base font-semibold text-gray-600">Just the essentials.</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">
@@ -100,7 +100,7 @@
         </div>
         <div
             class="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-            <div class="max-w-full w-full">
+            <div class="max-w-full w-full px-4 -mt-24">
                 <h3 class="text-2xl font-bold tracking-tight text-gray-900">Professional</h3>
                 <p class="text-base font-semibold text-gray-600">Put your best foot forward.</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">
@@ -167,7 +167,7 @@
         </div>
         <div
             class="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-            <div class="max-w-full w-full">
+            <div class="max-w-full w-full px-4 ">
                 <h3 class="text-2xl font-bold tracking-tight text-gray-900">Premium</h3>
                 <p class="text-base font-semibold text-gray-600">Maximum exposure..</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">

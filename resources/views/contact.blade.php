@@ -3,7 +3,7 @@
 
     <section class="relative overflow-hidden dark:bg-gray-900 font-poppins">
         <div class="absolute bottom-0 left-0 hidden w-full h-full lg:block lg:w-4/12">
-            <img class="object-cover w-full h-full" src="{{ asset('images/contact-us.jpeg') }}" alt="">
+            <img class="object-cover w-full h-full" src="{{ asset('images/contact-us.jpg') }}" alt="">
         </div>
         <div class="container relative px-4 mx-auto">
             <div class="max-w-5xl mx-auto">

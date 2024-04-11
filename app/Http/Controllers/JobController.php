@@ -69,7 +69,7 @@ class JobController extends Controller
     {
         $job->update([
             'title' => $request->title,
-            'employer_id' => 1,
+            'employer_id' => session()->get('employer_id'),
             'location' => $request->job_location,
             'salary' => $request->salary,
             'type' => $request->contract_type,

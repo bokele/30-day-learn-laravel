@@ -1,7 +1,7 @@
 <header class=" inset-x-0 top-0 z-50 shadow-lg">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
+            <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt="">
@@ -19,9 +19,16 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="{{ route('jobs.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Get Hired</a>
+            <a href="{{ route('get-hired') }}" class="text-sm font-semibold leading-6 text-gray-900">Get Hired</a>
+            @auth
+                <a href="{{ route('jobs.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Post Job</a>
+            @endauth
+
             <a href="{{ route('contact') }}" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
-            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Login</a>
+            @guest
+                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Login</a>
+            @endguest
+
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="{{ route('princing') }}"
