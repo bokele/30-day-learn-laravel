@@ -20,7 +20,8 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="{{ route('get-hired') }}" class="text-sm font-semibold leading-6 text-gray-900">Get Hired</a>
+            <a href="{{ route('get-hidred.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Get
+                Hired</a>
             @auth
                 <a href="{{ route('jobs.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Post Job</a>
             @endauth

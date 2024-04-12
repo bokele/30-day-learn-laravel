@@ -12,7 +12,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/princing', PrincingController::class)->name('princing');
 
 
-Route::get('get-hidred', GetHiredController::class)->name('get-hired');
+Route::resource('get-hidred', GetHiredController::class, ['index', 'show']);
 
 
 
@@ -24,10 +24,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
     Route::resource('jobs', JobController::class);
     Route::resource('companies', CompanyController::class, ['index', 'create', 'edit', 'store', 'update']);
 });

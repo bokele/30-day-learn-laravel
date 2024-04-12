@@ -31,7 +31,7 @@
 
     <div class="lg:col-span-3 mb-4">
         @foreach ($jobs as $job)
-            <a href="/jobs/{{ $job['id'] }}"
+            <a href="{{ route('get-hidred.show', $job->id) }}"
                 class="flex  flex-col rounded-2xl px-6 py-6 lg:px-8 bg-white  mt-4 hover:border-2 hover:border-indigo-800">
                 <p class="mt-2"> {{ $job->employer->name }}</p>
                 <p class="font-bold mt-2">{{ $job->title }} - {{ $job->location }} </p>
