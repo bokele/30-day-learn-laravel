@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GetHiredController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
@@ -28,4 +29,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('jobs', JobController::class);
+    Route::resource('companies', CompanyController::class);
 });

@@ -12,7 +12,11 @@ use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 class Employer extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'phone_number', 'contact_email', 'address',];
+    protected $fillable = [
+        'name', 'top', 'phone_number', 'email',
+        'address', 'short_description', 'video_url', 'website_url',
+        'company_logo', 'project_from',
+    ];
 
     public function avatarUrl()
     {
