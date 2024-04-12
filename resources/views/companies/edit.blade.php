@@ -8,7 +8,7 @@
     </div>
 
     <x-card>
-        <form method="POST" action="{{ route('companies.update', $company->id) }}" enctype="multipart/form-data">>
+        <form method="POST" action="{{ route('companies.update', $company->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="space-y-6">
@@ -117,7 +117,8 @@
                         <x-input-error for='company_logo' />
                     </div>
                     @if ($company->company_logo)
-                        <img src=" {{ asset($company->company_logo) }}" alt="{{ $company->name }}" class="mt-10">
+                        <img src=" {{ asset($company->company_logo) }}" alt="{{ $company->name }}"
+                            class="mt-10 h-24 w-auto">
                     @endif
                 </div>
             </div>

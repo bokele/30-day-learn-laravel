@@ -1,5 +1,19 @@
 <x-layout>
-
+    @if (session('message'))
+        <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+            <div class="flex">
+                <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                        <path
+                            d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                    </svg></div>
+                <div>
+                    <p class="font-bold">Contact Us</p>
+                    <p class="text-sm"> {{ session('message') }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <section class="relative overflow-hidden dark:bg-gray-900 font-poppins">
         <div class="absolute bottom-0 left-0 hidden w-full h-full lg:block lg:w-4/12">
@@ -11,33 +25,7 @@
                     <div class="w-full px-4 lg:w-3/5">
                         <div
                             class="w-full px-8 py-8 bg-white border rounded-md shadow-md dark:border-gray-800 dark:bg-gray-800 lg:ml-20 lg:max-w-md">
-                            <form action="">
-                                <div class="mb-6">
-                                    <h2 class="text-xl font-bold text-gray-00 dark:text-gray-400">
-                                        Please send message for futher information! </h2>
-                                </div>
-                                <div class="flex flex-wrap mb-4 -mx-2">
-                                    <div class="w-full px-2 mb-4 lg:mb-0 lg:w-1/2">
-                                        <input
-                                            class="w-full px-3 py-2 leading-loose border rounded-md bg-gray-50 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700"
-                                            type="text" placeholder="First Name.." required>
-                                    </div>
-                                    <div class="w-full px-2 lg:w-1/2">
-                                        <input
-                                            class="w-full px-3 py-2 leading-loose border rounded-md bg-gray-50 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700"
-                                            type="text" placeholder="Last Name.." required>
-                                    </div>
-                                </div>
-                                <input
-                                    class="w-full px-3 py-2 mb-4 leading-loose border rounded-md bg-gray-50 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700"
-                                    type="email" placeholder="job@uvajob.com" required>
-                                <textarea rows="4" type="message" placeholder="Write a message..." required
-                                    class="block w-full px-4 mb-4 leading-tight text-gray-700 border rounded bg-gray-50 dark:placeholder-gray-400 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-700 "></textarea>
-                                <button
-                                    class="w-full py-4 text-sm font-bold leading-normal text-white transition-all duration-300 bg-indigo-600 rounded-md dark:bg-indigo-500 dark:hover:bg-indigo-600 hover:bg-indigo-700">
-                                    Send Message
-                                </button>
-                            </form>
+                            <livewire:ContactLivewire>
                         </div>
                     </div>
                     <div class="w-full px-4 mb-8 lg:w-2/5 lg:mb-0">

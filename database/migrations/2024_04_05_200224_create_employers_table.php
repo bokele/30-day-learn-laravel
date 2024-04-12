@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('video_url')->nullable();
             $table->string('company_website_url')->nullable();
             $table->string('company_logo')->nullable();
-            $table->bigInteger('project_from')->default(0);
+            $table->string('project_from')->default(0);
             $table->timestamps();
         });
     }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmployerStoreRequest;
 use App\Http\Requests\EmployerUpdateRequest;
 use App\Models\Employer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -40,7 +42,7 @@ class CompanyController extends Controller
         $imageName = time() . '.' . $request->company_logo->extension();
         $request->company_logo->storeAs('companies-logos', $imageName, 'public');
 
-        Employer::create([
+        $company = Employer::create([
             'name' => $request->name,
             'phone_number' => $request->phone_number,
             'email' => $request->email,
@@ -50,6 +52,11 @@ class CompanyController extends Controller
             'website_url' => $request->website_url,
             'company_logo' => 'companies-logos/' . $imageName,
             'project_from' => $request->project_from,
+        ]);
+
+        $user = User::find(auth()->id());
+        $user->update([
+            'employer_id' => $company->id
         ]);
 
         return to_route('companies.index');
@@ -63,6 +70,10 @@ class CompanyController extends Controller
      */
     public function edit(Employer $company)
     {
+        if (auth()->user()->employer_id != $company->id) {
+            abort(403);
+        }
+
         return view('companies.edit', compact('company'));
     }
 
@@ -76,6 +87,7 @@ class CompanyController extends Controller
         if ($request->has('company_logo')) {
             $imageName = time() . '.' . $request->company_logo->extension();
             $request->company_logo->storeAs('companies-logos', $imageName, 'public');
+            $imageName = 'companies-logos/' . $imageName;
         } else {
             $imageName = $company->company_logo;
         }
@@ -90,7 +102,7 @@ class CompanyController extends Controller
             'short_description' => $request->short_description,
             'video_url' => $request->video_url,
             'website_url' => $request->website_url,
-            'company_logo' => 'companies-logos/' . $imageName,
+            'company_logo' =>  $imageName,
             'project_from' => $request->project_from,
         ]);
 

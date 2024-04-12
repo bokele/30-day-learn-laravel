@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('salary');
             $table->longText('description');
             $table->datetime('closing_date');
-
+            $table->json('tags')->nullable();
             $table->timestamps();
         });
     }

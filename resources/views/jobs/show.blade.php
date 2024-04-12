@@ -131,6 +131,16 @@
         <p class="mt-4">
             {{ $job->description }}
         </p>
+
+
+        <p class="mt-10">
+            @if ($job->tags)
+                @foreach ($job->tags as $tag)
+                    <span
+                        class="inline-flex items-center rounded-md bg-indigo-500 px-2 py-1 text-xs font-medium text-gray-200 ring-1 ring-inset ring-gray-500/10">{{ $tag->name }}</span>
+                @endforeach
+            @endif
+        </p>
     </div>
 
 

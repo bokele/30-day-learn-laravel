@@ -18,6 +18,5 @@ class TenantScope implements Scope
         if (session()->has('employer_id')) {
             $builder->where('employer_id', session()->get('employer_id'));
         }
-        
     }
 }

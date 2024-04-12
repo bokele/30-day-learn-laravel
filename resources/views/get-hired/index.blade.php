@@ -18,36 +18,12 @@
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:mx-0">
                     <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Work with us</h2>
-                    <p class="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt.
-                        Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">Uvajob is our first stop whenever we're hiring a
+                        Software or IT role. We've hired 10 Software developers in the last few years, all thanks to
+                        Uvajob.
+                    </p>
                 </div>
-                <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                    <div
-                        class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-                        <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
-                    </div>
-                    <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-                        <div class="flex flex-col-reverse">
-                            <dt class="text-base leading-7 text-gray-300">Offices worldwide</dt>
-                            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">12</dd>
-                        </div>
-                        <div class="flex flex-col-reverse">
-                            <dt class="text-base leading-7 text-gray-300">Full-time colleagues</dt>
-                            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">300+</dd>
-                        </div>
-                        <div class="flex flex-col-reverse">
-                            <dt class="text-base leading-7 text-gray-300">Hours per week</dt>
-                            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">40</dd>
-                        </div>
-                        <div class="flex flex-col-reverse">
-                            <dt class="text-base leading-7 text-gray-300">Paid time off</dt>
-                            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">Unlimited</dd>
-                        </div>
-                    </dl>
-                </div>
+
             </div>
         </div>
 
@@ -57,9 +33,18 @@
         @foreach ($jobs as $job)
             <a href="/jobs/{{ $job['id'] }}"
                 class="flex  flex-col rounded-2xl px-6 py-6 lg:px-8 bg-white  mt-4 hover:border-2 hover:border-indigo-800">
-                <p>{{ $job->employer->name }}</p>
-                <p class="font-bold">{{ $job->title }} - {{ $job->location }} </p>
-                <p><span>{{ $job->type }} - {{ $job->salary }} </p>
+                <p class="mt-2"> {{ $job->employer->name }}</p>
+                <p class="font-bold mt-2">{{ $job->title }} - {{ $job->location }} </p>
+                <p class="mt-2"><span>{{ $job->type }} - {{ $job->salary }} </p>
+
+                <p class="mt-4">
+                    @if ($job->tags)
+                        @foreach ($job->tags as $tag)
+                            <span
+                                class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">{{ $tag->name }}</span>
+                        @endforeach
+                    @endif
+                </p>
             </a>
         @endforeach
     </div>

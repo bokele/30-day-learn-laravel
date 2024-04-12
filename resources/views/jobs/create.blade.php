@@ -27,8 +27,8 @@
 
                                 <x-label for="job_location" value="Job Location" />
                                 <div class="mt-2">
-                                    <x-input id="job_location" name="title" type="text" autocomplete="job_location"
-                                        value="{{ old('job_location') }}"
+                                    <x-input id="job_location" name="job_location" type="text"
+                                        autocomplete="job_location" value="{{ old('job_location') }}"
                                         class="block w-full
                                      " />
 
@@ -83,10 +83,66 @@
                     <div class="col-span-full">
                         <x-label for="tags" value="Tags" />
                         <div class="mt-2">
-                            <x-input id="tags" name="tags" type="text" autocomplete="tags"
-                                value="{{ old('tags') }}"
-                                class="block w-full
-                                     " />
+
+                            <select @selected('tags') class="block w-full" multiple id="tags"
+                                name="tags[]">
+                                <option value="AlpineJS"> AlpineJS</option>
+                                <option value="Analyst">Analyst</option>
+                                <option ivalue="Angular">Angular</option>
+                                <option value="API">API</option>
+                                <option value="AWS">AWS</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Bootstrap">Bootstrap</option>
+                                <option value="Cloud">Cloud</option>
+                                <option value="Consultant">Consultant</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Craft CMS">Craft CMS</option>
+                                <option value="CSS">CSS</option>
+                                <option value="Customer Success">Customer Success
+                                </option>
+                                <option value="Customer Support">Customer Support
+                                </option>
+                                <option value="Design">Design</option>
+                                <option value="DevOps">DevOps</option>
+                                <option value="Engineer">Engineer</option>
+                                <option value="Frontend">Frontend</option>
+                                <option value="Fullstack">Fullstack</option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Git">Git</option>
+                                <option value="Go">Go</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="Junior">Junior</option>
+                                <option value="LAMP">LAMP</option>
+                                <option value="Laravel">Laravel</option>
+                                <option value="Lead">Lead</option>
+                                <option value="Linux">Linux</option>
+                                <option value="Livewire">Livewire</option>
+                                <option value="MacOS">MacOS</option>
+                                <option value="Management">Management</option>
+                                <option value="Microsoft">Microsoft</option>
+                                <option value="MySQL">MySQL</option>
+                                <option value="Node.js">Node.js</option>
+                                <option value="Non-Tech">Non-Tech</option>
+                                <option value="Open Source">Open Source</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Postgres">Postgres</option>
+                                <option value="QA">QA</option>
+                                <option value="React">React</option>
+                                <option value="Redis">Redis</option>
+                                <option value="SaaS">SaaS</option>
+                                <option value="Senior">Senior</option>
+                                <option value="SQL">SQL</option>
+                                <option value="Statamic">Statamic</option>
+                                <option value="Symfony">Symfony</option>
+                                <option value="TailwindCSS">TailwindCSS</option>
+                                <option value="TALL Stack">TALL Stack</option>
+                                <option value="TDD">TDD</option>
+                                <option value="Tech Support">Tech Support</option>
+                                <option value="Unix">Unix</option>
+                                <option value="VueJS">VueJS</option>
+                                <option value="WordPress">WordPress</option>
+                            </select>
                             <x-input-error for='tags' />
                         </div>
                         <p class="text-gray-400  text-sm">Max of five tags
@@ -107,30 +163,7 @@
                     </div>
 
 
-                    <div class="col-span-full mt-10">
-                        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover
-                            photo</label>
-                        <div
-                            class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                            <div class="text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
-                                    aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                        d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                    <label for="file-upload"
-                                        class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                        <span>Upload a file</span>
-                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                </div>
-                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                            </div>
-                        </div>
-                    </div>
+
 
                 </div>
             </div>

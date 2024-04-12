@@ -29,5 +29,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('jobs', JobController::class);
-    Route::resource('companies', CompanyController::class);
+    Route::resource('companies', CompanyController::class, ['index', 'create', 'edit', 'store', 'update']);
 });

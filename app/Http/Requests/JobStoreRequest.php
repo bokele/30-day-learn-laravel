@@ -24,7 +24,7 @@ class JobStoreRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'job_location' => ['required', 'string', 'max:255'],
-            'contract_type' => ['required', 'string', 'max:255'],
+            'employment_type' => ['required', 'string', 'max:255'],
             'salary' => ['required'],
             'description' => ['required'],
             'closing_date' => ['required', 'date'],

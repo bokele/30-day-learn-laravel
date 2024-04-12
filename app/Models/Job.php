@@ -8,15 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Tags\HasTags;
 
 #[ScopedBy([TenantScope::class])]
 class Job extends Model
 {
     use HasFactory;
     use BelongsToEmployer;
+    use HasTags;
 
     protected $table = 'job_listings';
-    protected $with = ['employer'];
+    protected $with = ['employer', 'tags:id,name'];
 
     protected $fillable = ['code', 'title', 'employer_id', 'location', 'salary', 'type', 'description', 'closing_date'];
 
@@ -24,6 +26,7 @@ class Job extends Model
     {
         return [
             'closing_date' => 'datetime:Y-m-d',
+            'tags' => 'json'
         ];
     }
 

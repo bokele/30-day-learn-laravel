@@ -11,7 +11,7 @@ class EmployerStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,9 +27,9 @@ class EmployerStoreRequest extends FormRequest
             'email' => ['required', 'email', 'max:255', 'unique:employers'],
             'address' => ['required', 'string', 'max:255',],
             'short_description' => ['required', 'string',],
-            'video_url' => ['sometimes', 'url:http,https',],
-            'website_url' => ['sometimes', 'url:http,https',],
-            'company_logo' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:2048'],
+            'video_url' => ['nullable', 'url:http,https',],
+            'website_url' => ['nullable', 'url:http,https',],
+            'company_logo' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:2048'],
             'project_from' => ['required',],
         ];
     }
