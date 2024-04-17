@@ -2,7 +2,7 @@
     <div class="lg:flex lg:items-center lg:justify-between">
         <div class="min-w-0 flex-1">
             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Edit
-                Job N<sup>o</sup> {{ $job->code }}</h2>
+                Job</h2>
         </div>
     </div>
 
@@ -12,68 +12,71 @@
             @method('PUT')
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
-                    <div class="border-b border-gray-900/10 pb-12">
-                        <div class="mt-10 grid grid-cols-1 gap-x-3 gap-y-8 sm:grid-cols-12">
-                            <div class="col-span-full">
-                                <x-label for="title" value="Job Title" />
-                                <div class="mt-2">
-                                    <x-input id="title" name="title" type="text" autocomplete="title"
-                                        value="{{ $job->title }}" class="block w-full   " />
-                                    <x-input-error for='title' />
-                                </div>
-                            </div>
-                            <div class="col-span-6">
 
-                                <x-label for="job_location" value="Job Location" />
-                                <div class="mt-2">
-                                    <select id="job_location" name="job_location" autocomplete="job_location"
-                                        @selected($job->location)
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                        <option value="onsite">Onsite</option>
-                                        <option value="remote">Remote</option>
-                                        <option value="hybrid">Hybrid</option>
-                                    </select>
-                                    <x-input-error for='job_location' />
-                                </div>
-                            </div>
-                            <div class="col-span-6">
-                                <label for="contract_type" class="block text-sm font-medium leading-6 text-gray-900">
-                                    Contract Type</label>
-                                <div class="mt-2">
-                                    <select id="contract_type" name="contract_type" autocomplete="contract_type"
-                                        @selected($job->type)
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm ">
-                                        <option value="full time">Full Time</option>
-                                        <option value="part time">Part Time</option>
-                                        <option value="conatct">Contract</option>
-                                    </select>
-                                    <x-input-error for='contract_type' />
-                                </div>
-                            </div>
-
-                            <div class="col-span-6">
-                                <x-label for="salary" value="Salary" />
-                                <div class="mt-2">
-                                    <x-input id="salary" name="salary" type="text" autocomplete="salary"
-                                        value="{{ $job->salary }}" class="block w-full   " />
-                                    <x-input-error for='salary' />
-
-                                </div>
-                            </div>
-                            <div class="col-span-6">
-                                <x-label for="closing_date" value="Close Date" />
-                                <div class="mt-2">
-                                    <x-input id="closing_date" name="closing_date" type="date"
-                                        autocomplete="closing_date" value="{{ $job->closing_date }}"
-                                        class="block w-full   " />
-                                    <x-input-error for='closing_date' />
-
-                                </div>
+                    <div class="mt-10 grid grid-cols-1 gap-x-3 gap-y-8 sm:grid-cols-12">
+                        <div class="col-span-full">
+                            <x-label for="title" value="Job Title" />
+                            <div class="mt-2">
+                                <x-input id="title" name="title" type="text" autocomplete="title"
+                                    value="{{ $job->title }}" class="block w-full   " />
+                                <x-input-error for='title' />
                             </div>
                         </div>
-                    </div>
+                        <div class="col-span-6">
 
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <x-label for="job_location" value="Job Location" />
+                            <div class="mt-2">
+                                <x-input id="job_location" name="job_location" type="text"
+                                    autocomplete="job_location" value="{{ $job->location }}"
+                                    class="block w-full
+                                     " />
+
+                                <x-input-error for='job_location' />
+                            </div>
+                            <p class="text-gray-400  text-sm">Example: "Remote", "Remote / USA", "New York City",
+                                "Remote GMT-5", etc..</p>
+                        </div>
+                        <div class="col-span-6">
+                            <x-label for="employment_type" value="Employment Type" />
+
+                            <div class="mt-2">
+                                <select
+                                    class="block w-full pl-3 pr-10 py-2 text-base leading-6 border-2  rounded-md border-gray-200 ring-gray-300 focus:outline-none focus:shadow-outline-blue focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5"
+                                    name="employment_type" id="employment_type">
+
+                                    <option>Select Employment Type </option>
+                                    <option value="FULL TIME" @selected('FULL TIME' == $job->type)>Full Time</option>
+                                    <option value="PART TIME" @selected(old('employment_type') == $job->type)>Part Time</option>
+                                    <option value="CONTRACTOR" @selected('PART TIME' == $job->type)>Contractor</option>
+                                    <option value="TEMPORARY" @selected('TEMPORARY' == $job->type)>Temporary</option>
+                                    <option value="INTERN" @selected('INTERN' == $job->type)>Intern</option>
+                                    <option value="VOLUNTEER" @selected('VOLUNTEER' == $job->type)>Volunteer</option>
+                                    <option value="PER DIEM" @selected('PER DIEM' == $job->type)>Per Diem</option>
+                                    <option value="OTHER" @selected('OTHER' == $job->type)>Other</option>
+                                </select>
+                                <x-input-error for='employment_type' />
+                            </div>
+                        </div>
+
+                        <div class="col-span-6">
+                            <x-label for="salary" value="Salary" />
+                            <div class="mt-2">
+                                <x-input id="salary" name="salary" type="text" autocomplete="salary"
+                                    value="{{ $job->salary }}" class="block w-full   " />
+                                <x-input-error for='salary' />
+
+                            </div>
+                        </div>
+                        <div class="col-span-6">
+                            <x-label for="closing_date" value="Close Date" />
+                            <div class="mt-2">
+                                <x-input id="closing_date" name="closing_date" type="date"
+                                    autocomplete="closing_date" value="{{ $job->closing_date }}"
+                                    class="block w-full   " />
+                                <x-input-error for='closing_date' />
+
+                            </div>
+                        </div>
                         <div class="col-span-full">
                             <x-label for="description" value="Description" />
                             <div class="mt-2">
@@ -84,7 +87,21 @@
                                 <x-input-error for='description' />
                             </div>
                         </div>
+                        <div class="col-span-full mt-4">
+                            <x-label for="application_form_link" value="Application form Link" />
+                            <div class="mt-2">
+                                <x-input id="application_form_link" name="application_form_link" type="text"
+                                    autocomplete="application_form_link" value="{{ $job->application_form_link }}"
+                                    class="block w-full
+                                     " />
+                                <x-input-error for='application_form_link' />
+                            </div>
+                            <p class="text-gray-400  text-sm">If empty the Easy Apply button will be visible</p>
+                        </div>
+
                     </div>
+
+
                 </div>
             </div>
 

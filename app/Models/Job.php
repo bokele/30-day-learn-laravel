@@ -20,7 +20,12 @@ class Job extends Model
     protected $table = 'job_listings';
     protected $with = ['employer', 'tags:id,name'];
 
-    protected $fillable = ['code', 'title', 'employer_id', 'location', 'salary', 'type', 'description', 'closing_date'];
+    protected $fillable = [
+        'code', 'title', 'employer_id',
+        'location', 'salary', 'type',
+        'description', 'closing_date',
+        'easy_apply', 'application_form_link'
+    ];
 
     protected function casts(): array
     {

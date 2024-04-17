@@ -14,6 +14,6 @@ class HomeController extends Controller
 
         // dd('https://api.dicebear.com/8.x/bokele/jpg');
         $companies = Employer::get();
-        return view('home', compact('companies'));
+        return view('pages.home', compact('companies'));
     }
 }

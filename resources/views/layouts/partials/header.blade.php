@@ -1,4 +1,4 @@
-<header class=" inset-x-0 top-0 z-50 shadow-lg" x-data="{ open: false }">
+<header class=" inset-x-0 top-0 z-50 shadow-lg bg-gray-900 text-gray-300" x-data="{ open: false }">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="/" class="-m-1.5 p-1.5">
@@ -20,15 +20,20 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="{{ route('get-hidred.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Get
+            <a href="{{ route('get-hidred.index') }}"
+                class="text-sm font-semibold leading-6 text-gray-300 hover:border-b-2 hover:border-indigo-500">Get
                 Hired</a>
             @auth
-                <a href="{{ route('jobs.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Post Job</a>
+                <a href="{{ route('jobs.index') }}"
+                    class="text-sm font-semibold leading-6 text-gray-300 hover:border-b-2 hover:border-indigo-500">Post
+                    Job</a>
             @endauth
 
-            <a href="{{ route('contact') }}" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+            <a href="{{ route('contact') }}"
+                class="text-sm font-semibold leading-6 text-gray-300 hover:border-b-2 hover:border-indigo-500">Contact</a>
             @guest
-                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Login</a>
+                <a href="{{ route('login') }}"
+                    class="text-sm font-semibold leading-6 text-gray-300 hover:border-b-2 hover:border-indigo-500">Login</a>
             @endguest
 
         </div>
@@ -95,7 +100,8 @@
         </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
+    <div class="lg:hidden" role="dialog" aria-modal="true" x-data="{ open: false }" @click.away="open = false"
+        @close.stop="open = false">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-50"></div>
         <div
@@ -103,10 +109,9 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="">
+                    <img class="h-8 w-auto" src="{{ asset('uvajob.png') }}" alt="">
                 </a>
-                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="open = false">
                     <span class="sr-only">Close menu</span>
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         aria-hidden="true">

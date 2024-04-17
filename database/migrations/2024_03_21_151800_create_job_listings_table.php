@@ -23,6 +23,8 @@ return new class extends Migration
             $table->longText('description');
             $table->datetime('closing_date');
             $table->json('tags')->nullable();
+            $table->boolean('easy_apply')->define(false);
+            $table->string('application_form_link')->nullable();
             $table->timestamps();
         });
     }

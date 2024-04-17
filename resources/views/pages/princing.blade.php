@@ -65,12 +65,14 @@
                 <h3 class="text-2xl font-bold tracking-tight text-gray-900">Basic</h3>
                 <p class="text-base font-semibold text-gray-600">Just the essentials.</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">
-                    <span class="text-5xl font-bold tracking-tight text-gray-900">$349</span>
+                    <span class="text-5xl font-bold tracking-tight text-gray-900">$9.99</span>
                     <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
                 </p>
-                <a href="#"
+                <a href="{{ route('checkout', ['plan' => 'price_1P5Vo0EeQ3YObL4sgDdXB882']) }}"
                     class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
                     access</a>
+
+
 
                 <div class=" w-full p-8 sm:p-10 lg:flex-auto">
                     <div class="mt-10 flex items-center gap-x-4">
@@ -104,10 +106,10 @@
                 <h3 class="text-2xl font-bold tracking-tight text-gray-900">Professional</h3>
                 <p class="text-base font-semibold text-gray-600">Put your best foot forward.</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">
-                    <span class="text-5xl font-bold tracking-tight text-gray-900">$349</span>
+                    <span class="text-5xl font-bold tracking-tight text-gray-900">$29.99</span>
                     <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
                 </p>
-                <a href="#"
+                <a href="{{ route('checkout', ['plan' => 'price_1P5VmQEeQ3YObL4scFhKQEUZ']) }}"
                     class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
                     access</a>
 
@@ -171,10 +173,10 @@
                 <h3 class="text-2xl font-bold tracking-tight text-gray-900">Premium</h3>
                 <p class="text-base font-semibold text-gray-600">Maximum exposure..</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">
-                    <span class="text-5xl font-bold tracking-tight text-gray-900">$349</span>
+                    <span class="text-5xl font-bold tracking-tight text-gray-900">$49.99</span>
                     <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
                 </p>
-                <a href="#"
+                <a href="{{ route('checkout', ['plan' => 'price_1P5Vp7EeQ3YObL4sqPSEQbu0']) }}"
                     class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
                     access</a>
 

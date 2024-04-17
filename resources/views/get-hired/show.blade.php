@@ -47,74 +47,27 @@
             </div>
         </div>
 
-        <div class="mt-5 flex lg:ml-4 lg:mt-0">
-            <span class="hidden sm:block">
-
-                <x-link href="/jobs/{{ $job->id }}/edit"> <svg class="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
-                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path
-                            d="M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z" />
-                    </svg> Edit Job</x-link>
-            </span>
-
-            @if ($job->employer_id == auth()->user()->employer_id && !$job->published)
-                <span class="sm:ml-3">
-                    <button type="button"
-                        class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        <svg class="-ml-0.5 mr-1.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Publish
-                    </button>
-                </span>
-            @endif
-
-            <!-- Dropdown -->
-            <div class="relative ml-3 sm:hidden">
-                <button type="button"
-                    class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-400"
-                    id="mobile-menu-button" aria-expanded="false" aria-haspopup="true">
-                    More
-                    <svg class="-mr-1 ml-1.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
-                        aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <div class="absolute right-0 z-10 -mr-1 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                    role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
-                    <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                        id="mobile-menu-item-0">Edit</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                        id="mobile-menu-item-1">View</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 
     <div class="lg:col-span-3 bg-white p-4 mt-10">
         <p class="flex gap-x-3">
             <span>
-                <strong class="font-semibold text-gray-900">Company : </strong>
-                {{ $job->employer->name }}
+                <strong class="font-semibold text-gray-900 text-2xl">Company :
+                    {{ $job->employer->name }}</strong>
             </span>
         </p>
         <p class="flex gap-x-3">
             <span>
-                <strong class="font-semibold text-gray-900">Job Title : </strong>
-                {{ $job->title }}
+                <strong class="font-semibold text-gray-900 text-2xl">Job Title &nbsp;&nbsp;:
+                    {{ $job->title }}</strong>
             </span>
         </p>
 
         <p class="mt-4">
             {{ $job->description }}
         </p>
+
         <p class="mt-10">
             @if ($job->tags)
                 @foreach ($job->tags as $tag)
@@ -124,7 +77,15 @@
             @endif
         </p>
 
-
+        @if ($job->application_form_link)
+            <x-link href="{{ $job->application_form_link }}"
+                class="hover:border-2 hover:border-indigo-600 hover:text-indigo-600 hover:bg-indigo-100">
+                Easy Apply> Application form</x-link>
+        @else
+            <x-link href="#"
+                class="hover:border-2 hover:border-indigo-600 hover:text-indigo-600 hover:bg-indigo-100">
+                Easy Apply</x-link>
+        @endif
     </div>
 
 

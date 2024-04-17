@@ -32,9 +32,6 @@ class JobController extends Controller
      */
     public function store(JobStoreRequest $request)
     {
-
-
-
         $job = Job::create([
             'title' => $request->title,
             'employer_id' => 1,
@@ -42,7 +39,9 @@ class JobController extends Controller
             'salary' => $request->salary,
             'type' => $request->employment_type,
             'description' => $request->description,
-            'closing_date' => $request->closing_date
+            'closing_date' => $request->closing_date,
+            'easy_apply' => $request->easy_apply,
+            'application_form_link' => $request->application_form_link
         ]);
 
         $job->attachTags($request->tags);
@@ -74,14 +73,18 @@ class JobController extends Controller
      */
     public function update(JobStoreRequest $request, Job $job)
     {
+
+
+
         $job->update([
             'title' => $request->title,
-            'employer_id' => session()->get('employer_id'),
             'location' => $request->job_location,
             'salary' => $request->salary,
-            'type' => $request->contract_type,
+            'type' => $request->employment_type,
             'description' => $request->description,
-            'closing_date' => $request->closing_date
+            'closing_date' => $request->closing_date,
+            'easy_apply' => $request->application_form_link ? false : true,
+            'application_form_link' => $request->application_form_link
         ]);
 
         return to_route('jobs.show', $job->id);

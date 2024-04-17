@@ -11,22 +11,22 @@
 </head>
 
 <body class="h-full">
-    <div class="min-h-full">
-        <div class="bg-white">
 
-            @include('layouts.partials.header')
-            {{ $hero ?? '' }}
-            {{ $heading ?? '' }}
-        </div>
+    <div class="bg-white">
 
-        <main>
-            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 mt-10">
-                {{ $slot }}
-            </div>
-        </main>
-
-        @include('layouts.partials.footer')
+        @include('layouts.partials.header')
+        {{ $hero ?? '' }}
+        {{ $heading ?? '' }}
     </div>
+
+    <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 ">
+            {{ $slot }}
+        </div>
+    </main>
+
+    @include('layouts.partials.footer')
+
 </body>
 
 </html>

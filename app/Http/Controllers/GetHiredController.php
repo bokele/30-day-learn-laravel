@@ -19,6 +19,6 @@ class GetHiredController extends Controller
     public function show($id)
     {
         $job = Job::withoutGlobalScopes()->findOrFail($id);
-        return view('jobs.show', compact('job'));
+        return view('get-hired.show', compact('job'));
     }
 }

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmployerStoreRequest;
 use App\Http\Requests\EmployerUpdateRequest;
 use App\Models\Employer;
+use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Cashier\Subscription;
 
 class CompanyController extends Controller
 {
@@ -30,6 +32,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
+
+
         return view('companies.create');
     }
 
@@ -70,11 +74,18 @@ class CompanyController extends Controller
      */
     public function edit(Employer $company)
     {
+
+
+        $user = User::find(auth()->id());
+
         if (auth()->user()->employer_id != $company->id) {
             abort(403);
         }
+        $subscription = $user->subscriptions()->active()->latest()->first();
 
-        return view('companies.edit', compact('company'));
+        $plan = Plan::Where('stripe_plan', $subscription->stripe_price)->first();
+
+        return view('companies.edit', compact('company', 'plan'));
     }
 
     /**

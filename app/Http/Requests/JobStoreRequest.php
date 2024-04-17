@@ -28,6 +28,8 @@ class JobStoreRequest extends FormRequest
             'salary' => ['required'],
             'description' => ['required'],
             'closing_date' => ['required', 'date'],
+            'easy_apply' => ['nullable',],
+            'application_form_link' => ['nullable', 'url'],
         ];
     }
 }

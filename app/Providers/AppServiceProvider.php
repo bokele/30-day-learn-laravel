@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Listeners\SetTenantIdInSession;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use Laravel\Cashier\Cashier;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,9 +22,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+
         Event::listen(
             SetTenantIdInSession::class,
             'handle'
         );
+
+
+        Cashier::calculateTaxes();
     }
 }

@@ -48,7 +48,6 @@
 
                                     <x-input-error for='phone_number' />
                                 </div>
-
                             </div>
                             <div class="col-span-6">
                                 <x-label for="email" value="Email" />
@@ -61,16 +60,17 @@
                                     <x-input-error for='email' />
                                 </div>
                             </div>
-
-                            <div class="col-span-6">
-                                <x-label for="video_url" value="Video Url" />
-                                <div class="mt-2">
-                                    <x-input id="video_url" name="video_url" type="text" autocomplete="video_url"
-                                        value="{{ $company->video_url }}" class="block w-full   " />
-                                    <x-input-error for='video_url' />
+                            @if ($plan == 'Premium')
+                                <div class="col-span-6">
+                                    <x-label for="video_url" value="Video Url" />
+                                    <div class="mt-2">
+                                        <x-input id="video_url" name="video_url" type="text" autocomplete="video_url"
+                                            value="{{ $company->video_url }}" class="block w-full   " />
+                                        <x-input-error for='video_url' />
+                                    </div>
                                 </div>
+                            @endif
 
-                            </div>
                             <div class="col-span-6">
                                 <x-label for="website_url" value="Website Url" />
                                 <div class="mt-2">
@@ -108,19 +108,21 @@
                         </div>
                     </div>
 
-
-                    <div class="col-span-full mt-10">
-                        <label for="company_logo" class="block text-sm font-medium leading-6 text-gray-900">
-                            Company Logo
-                        </label>
-                        <x-input type="file" id="company_logo" name="company_logo" class="block w-full" />
-                        <x-input-error for='company_logo' />
-                    </div>
-                    @if ($company->company_logo)
-                        <img src=" {{ asset($company->company_logo) }}" alt="{{ $company->name }}"
-                            class="mt-10 h-24 w-auto">
-                    @endif
+                    @if ($plan == 'Premium' || $plan == 'Professional')
+                        <div class="col-span-full mt-10">
+                            <label for="company_logo" class="block text-sm font-medium leading-6 text-gray-900">
+                                Company Logo
+                            </label>
+                            <x-input type="file" id="company_logo" name="company_logo" class="block w-full" />
+                            <x-input-error for='company_logo' />
+                        </div>
+                        @if ($company->company_logo)
+                            <img src=" {{ asset($company->company_logo) }}" alt="{{ $company->name }}"
+                                class="mt-10 h-24 w-auto">
+                        @endif
                 </div>
+
+                @endif
             </div>
 
             <div class="mt-6 flex items-center justify-end gap-x-6">

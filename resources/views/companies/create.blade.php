@@ -61,16 +61,18 @@
                                     <x-input-error for='email' />
                                 </div>
                             </div>
+                            @if (auth()->user()->subscribedToProduct('price_1P5Vp7EeQ3YObL4sqPSEQbu0', 'default'))
+                                <div class="col-span-6">
+                                    <x-label for="video_url" value="Video Url" />
+                                    <div class="mt-2">
+                                        <x-input id="video_url" name="video_url" type="text" autocomplete="video_url"
+                                            value="{{ old('video_url') }}" class="block w-full   " />
+                                        <x-input-error for='video_url' />
+                                    </div>
 
-                            <div class="col-span-6">
-                                <x-label for="video_url" value="Video Url" />
-                                <div class="mt-2">
-                                    <x-input id="video_url" name="video_url" type="text" autocomplete="video_url"
-                                        value="{{ old('video_url') }}" class="block w-full   " />
-                                    <x-input-error for='video_url' />
                                 </div>
+                            @endif
 
-                            </div>
                             <div class="col-span-6">
                                 <x-label for="website_url" value="Website Url" />
                                 <div class="mt-2">
