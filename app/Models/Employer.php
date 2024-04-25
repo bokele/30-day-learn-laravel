@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cohensive\Embed\Facades\Embed;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employer extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'top', 'phone_number', 'email',
+        'user_id', 'name', 'top', 'phone_number', 'email',
         'address', 'short_description', 'video_url', 'website_url',
         'company_logo', 'project_from',
     ];
@@ -33,6 +33,12 @@ class Employer extends Model
 
         $embed->setAttribute(['width' => 600]);
         return $embed->getHtml();
+    }
+
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function jobs()

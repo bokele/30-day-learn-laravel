@@ -5,3 +5,7 @@
 [x-cloak] {
     display: none;
 }
+/* style=" max-width: 80rem;" */
+.modal-box {
+    @apply w-full p-4 overflow-x-hidden overflow-y-auto max-h-full;
+}

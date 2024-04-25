@@ -1,4 +1,4 @@
-<section class=" flex flex-col  lg:justify-end font-poppins">
+<section class="h-screen flex flex-col  lg:justify-end font-poppins">
     <div class="w-full bg-indigo-900 pt-11 dark:bg-gray-900 ">
         <div class="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0">
 

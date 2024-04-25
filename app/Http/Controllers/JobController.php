@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobStoreRequest;
+use App\Mail\JobPosted;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
@@ -14,7 +16,12 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->paginate(20);
+        if (!auth()->user()->employer) {
+            return to_route('companies.index');
+        }
+
+        $jobs = Job::where('employer_id', auth()->user()->employer->id)->latest()->paginate(20);
+
 
         return view('jobs.index', compact('jobs'));
     }
@@ -34,17 +41,21 @@ class JobController extends Controller
     {
         $job = Job::create([
             'title' => $request->title,
-            'employer_id' => 1,
+            'employer_id' => auth()->user()->employer->id,
             'location' => $request->job_location,
             'salary' => $request->salary,
             'type' => $request->employment_type,
             'description' => $request->description,
             'closing_date' => $request->closing_date,
-            'easy_apply' => $request->easy_apply,
+            'easy_apply' => 1,
             'application_form_link' => $request->application_form_link
         ]);
 
         $job->attachTags($request->tags);
+
+        Mail::to($job->employer->user)->send(
+            new JobPosted($job)
+        );
 
         return to_route('jobs.index');
     }

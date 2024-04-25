@@ -20,11 +20,7 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
                     required autocomplete="username" />
             </div>
-            <div class="mt-4">
-                <x-label for="company_name" value="Company Name" />
-                <x-input id="company_name" class="block mt-1 w-full" type="text" name="company_name"
-                    :value="old('company_name')" required autocomplete="company_name" />
-            </div>
+
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />

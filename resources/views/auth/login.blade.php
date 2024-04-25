@@ -44,14 +44,17 @@
                     <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
-
             <div class="flex w-full items-center mt-4">
-
-
                 <x-button class="flex w-full justify-center ">
                     {{ __('Log in') }}
                 </x-button>
             </div>
         </form>
+        <div class="flex mt-10 justify-center text-gray-700">
+            Don't have an account? &nbsp;<a
+                href="{{ route('register') }}"class="font-semibold text-indigo-600 hover:text-indigo-500 text-center">
+                {{ __('Register') }}</a>
+        </div>
+
     </x-authentication-card>
 </x-guest-layout>

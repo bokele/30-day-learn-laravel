@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Tags\HasTags;
 
-#[ScopedBy([TenantScope::class])]
+
 class Job extends Model
 {
     use HasFactory;

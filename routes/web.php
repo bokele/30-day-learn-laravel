@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GetHiredController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobProfileController;
 use App\Http\Controllers\PrincingController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
@@ -27,4 +28,6 @@ Route::middleware([
         ->name('checkout');
     Route::get('success/{plan?}/{prod?}', [CheckoutController::class, 'success'])
         ->name('success');
+
+    Route::resource('jobs-profile', JobProfileController::class);
 });
